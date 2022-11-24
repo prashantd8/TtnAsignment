@@ -1,0 +1,26 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories='myapp.trail'}"/>
+<p class="align-center">
+       <a href="${properties.backlink}">Back to top</a>
+</p>
+<footer class="blog-footer">
+       <div class="row">
+              <div class="col-xs-12 col-sm-12 ">
+                     <div class="footer__block">
+                            <sly data-sly-test="${pageProperties.presets2=='HomePage'}">
+                            <a target="" href="${properties.homelink}" aria-label="PwC office locations">HomePage</a></t>
+                            </sly>
+                            <sly data-sly-test="${pageProperties.presets2=='Blogs'}">
+                            <a target="" href="${properties.bloglink}" aria-label="PwC office locations">Blogs</a>
+                            </sly>
+                            <sly data-sly-test="${pageProperties.presets2=='Both'}">
+                                   <a target="" href="${properties.homelink}" aria-label="PwC office locations">HomePage</a></t>
+                                   <a target="" href="${properties.bloglink}" aria-label="PwC office locations">Blogs</a>
+                            </sly>
+                     </div>
+              </div>
+       </div>
+       <p>© 2022  - 2023 TTN Bootcamp. All rights reserved.</p>
+</footer>
+
+
+

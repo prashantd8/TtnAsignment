@@ -1,0 +1,18 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories='myapp.trail'}"/>
+<main role="main" class="container">
+    <sly data-sly-test="${pageProperties.presets3=='Yes'}">
+        <img src="${properties.putasset}" class="banner" alt="Bootcamp Banner">
+    </sly>
+
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="assets/js/vendor/holder.min.js"></script>
+<script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
