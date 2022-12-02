@@ -8,10 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ResolverUtil {
-
-
     private ResolverUtil() {
-
     }
 
     public static final String GEEKS_SERVICE_USER = "demoprashant";

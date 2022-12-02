@@ -29,17 +29,17 @@
                                         <image
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                fieldLabel="Banner Image"
+                                                fieldLabel="carousel_image"
                                                 name="./image"/>
                                         <title
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldLabel="Banner Title"
+                                                fieldLabel="Carousel_Title"
                                                 name="./title"/>
                                         <linkUrl
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                fieldLabel="Link"
+                                                fieldLabel="Carousel_Link"
                                                 name="./linkUrl"/>
                                         <content
                                                 jcr:primaryType="nt:unstructured"

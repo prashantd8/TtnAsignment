@@ -3,18 +3,8 @@
        <div class="row">
                      <div class="p-3">
                             <h4 class="font-italic">Archives</h4>
-                            <ol class="list-unstyled mb-0">
-                                   <li><a href="${properties.link1}">January 2022</a></li>
-                                   <li><a href="${properties.link2}">February 2022</a></li>
-                                   <li><a href="${properties.link3}">March 2022</a></li>
-                                   <li><a href="${properties.link4}">April 2022</a></li>
-                                   <li><a href="${properties.link5}">May 2022</a></li>
-                                   <li><a href="${properties.link6}">June 2022</a></li>
-                                   <li><a href="${properties.link7}">July 2022</a></li>
-                                   <li><a href="${properties.link8}">August 2022</a></li>
-                                   <li><a href="${properties.link9}">September 2022</a></li>
-                                   <li><a href="${properties.link10}">October 2022</a></li>
-                                   <li><a href="${properties.link11}">November 2022</a></li>
+                            <ol class="list-unstyled mb-0" data-sly-list="${currentPage.listChildren}">
+                                   <li><a href="${item.path}.html">${item.title}</a></li>
                             </ol>
                      </div>
        </div>

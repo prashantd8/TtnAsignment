@@ -1,0 +1,71 @@
+<sly data-sly-use.model="com.myapp.core.models.DataSheetModel"/>
+
+ <style>
+.btn{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+ </style>
+
+<!--    <li><a href="${item.path}">${item.lname}</a></li>-->
+<input type="button" class="btn" value="ShowData" onclick="showStuff('answer1'); return false;">
+<div id="answer1" style="display: none;">
+    <table>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>phone</th>
+            <th>Marks</th>
+            <th>City</th>
+        </tr>
+    </table>
+    <table>
+        <sly data-sly-list="${model.allChildren}">
+            <tr>
+
+                <td>${item.fname}</td>
+                <td>${item.lname}</td>
+                <td>${item.age}</td>
+                <td>${item.phone}</td>
+                <td>${item.marks}</td>
+                <td>${item.city}</td>
+
+            </tr>
+        </sly>
+
+
+    </table>
+
+
+</div>
+
+
+<script type="text/javascript">
+function showStuff(id) {
+  document.getElementById(id).style.display = 'block';
+}
+</script>

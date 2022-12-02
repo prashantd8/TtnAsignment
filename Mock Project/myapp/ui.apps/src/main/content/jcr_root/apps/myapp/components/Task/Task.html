@@ -1,0 +1,56 @@
+<sly data-sly-use.model="com.myapp.core.models.NodeModel"/>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.all @ categories='myapp.form'}"/>
+<div class="form-style-6">
+    <h1>${properties.title}</h1>
+    <form name="myform" method="POST" action="/bin/submitdata2" onsubmit="return validateform()" >
+        <input type="number" name="id" placeholder="${properties.field0}" >
+        <input type="text" name="fname" placeholder="${properties.field1}" >
+        <input type="text" name="lname" placeholder="${properties.field2}">
+        <input type="date" name="age" placeholder="${properties.field3}">
+        <input type="text" name="phone" placeholder="${properties.field4}" >
+        <input type="number" name="marks" min="${model.age}" placeholder="${properties.field5}">
+        <input type="text" name="city" placeholder="${properties.field6}">
+        <button type="submit">${properties.btn}</button>
+
+    </form>
+</div>
+<script>
+function validateform(){
+var id=document.myform.id.value;
+var fname=document.myform.fname.value;
+var lname=document.myform.lname.value;
+var age=document.myform.age.value;
+var phone=document.myform.phone.value;
+var marks=document.myform.phone.value;
+var city=document.myform.city.value;
+
+if (id==null || id==""){
+  alert("ID can't be blank");
+  return false;
+}else if(fname==null || fname==""){
+ alert(" Name  can't be blank");
+  return false;
+  }
+else if(lname==null || lname==""){
+alert("lname can't be black");
+return false;
+}
+else if(city==null || city==""){
+alert(" city can't be black");
+return false;
+}
+else if(age==null || age==""){
+	alert("Age can't be black");
+return false;
+}
+else if(phone.length<=10){
+alert("pls enter 10 digit phone number");
+return false;
+}
+
+}
+</script>
+
+
+

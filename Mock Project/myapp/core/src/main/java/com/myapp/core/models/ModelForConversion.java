@@ -26,15 +26,23 @@ public class ModelForConversion {
     public int getNum() {
         InheritanceValueMap inheritedProperties = new
                 HierarchyNodeInheritanceValueMap(currentPage.getContentResource());
-        if (inheritedProperties.get("num") == null) {
-            return 4;
-        } else {
             return inheritedProperties.getInherited("num", Integer.class) - 1;
         }
-    }
 }
 //inheritance value map
 
 
 //        ValueMap v = currentPage.getProperties();
 //        return v.get("num",Integer.class)-1;
+
+
+//    public int getNum() {
+//        InheritanceValueMap inheritedProperties = new
+//                HierarchyNodeInheritanceValueMap(currentPage.getContentResource());
+//        if (inheritedProperties.get("num") == null) {
+//            return 4;
+//        } else {
+//            return inheritedProperties.getInherited("num", Integer.class) - 1;
+//        }
+//    }
+//}

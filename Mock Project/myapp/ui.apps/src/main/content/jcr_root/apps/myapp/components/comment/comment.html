@@ -1,0 +1,55 @@
+
+<form>
+    <table>
+        <tr>
+            <td>FirstName</td>
+            <td><input type="text" name="firstname"></td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td><input type="text" name="lastname"></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="date" name="age"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="number" name="phone"></td>
+        </tr>
+        <tr>
+            <td>Marks</td>
+            <td><input type="number" name="marks"></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input type="text" name="city"></td>
+        </tr>
+        <tr>
+            <button type="submit">Submit</button>
+            <button type="Clear">Clear</button>
+        </tr>
+    </table>
+</form>
+
+<script>
+var frm = $('#Form1');
+frm.submit(function (e) {
+e.preventDefault();
+$.ajax({
+type: frm.attr('method'),
+url:  "/content/myapp/mynode",
+data: frm.serialize(),
+success: function (data) {
+alert("success");
+console.log('Submission was successful.');
+console.log(data);
+},
+error: function (data) {
+console.log('An error occurred.');
+console.log(data);
+},
+});
+});
+</script>
+

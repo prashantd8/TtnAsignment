@@ -18,7 +18,9 @@ package com.myapp.core.servlets;
 import com.day.cq.commons.jcr.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
@@ -26,9 +28,13 @@ import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+
+import static com.day.cq.wcm.foundation.List.log;
 
 /**
  * Servlet that writes some sample content into the response. It is mounted for
@@ -38,19 +44,32 @@ import java.io.IOException;
  */
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
-        resourceTypes="myapp/components/page",
+        resourceTypes="myapps/mypage",
         methods=HttpConstants.METHOD_GET,
         extensions="txt")
 @ServiceDescription("Simple Demo Servlet")
-public class SimpleServlet extends SlingSafeMethodsServlet {
+public class SimpleServlet extends SlingAllMethodsServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doGet(final SlingHttpServletRequest req,
-            final SlingHttpServletResponse resp) throws ServletException, IOException {
-        final Resource resource = req.getResource();
-        resp.setContentType("text/plain");
-        resp.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+    protected void doPost(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
+//        final Resource resource = req.getResource();
+//        resp.setContentType("text/plain");
+//        resp.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
+
+try{
+    ResourceResolver resourceResolver=req.getResourceResolver();
+    Resource resource=resourceResolver.getResource("/content");
+    log.info("Resource is at path{}", resource.getPath());
+    Node node = resource.adaptTo(Node.class);
+//    NodeModel newNode =node.addNode("demoNode","nt:unstructured");
+    //node.setProperty("name","Prashant");
+    resourceResolver.commit();
+
+}catch (PersistenceException e){
+    log.error(e.getMessage(),e);
+    e.printStackTrace();
+}
     }
 }
